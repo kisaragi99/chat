@@ -1,10 +1,17 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import AppRouter from './components/AppRouter';
+import Navbar from './components/Navbar';
+import './App.css'
 
 let App = () =>{
-return (
-  <div>Hi There</div>
-)
-}
 
+return (
+    <BrowserRouter>
+      <Navbar/>
+      <AppRouter/>
+    </BrowserRouter>
+  )
+}
 
 export default App;
