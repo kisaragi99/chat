@@ -11,11 +11,11 @@ const Navbar = () => {
 
   return (
     <>
-      <AppBar color={"primary"} position="static">
+      <AppBar color={"primary"} position="fixed">
         <Toolbar variant={"dense"}>
           <Grid container justify={"flex-end"}>
             {user ? 
-              <Button onClick={ ()=> auth.signOut() } variant={"outlined"}>Log out</Button> 
+              <Button onClick={ ()=> auth.signOut() } variant={"outlined"} style={{color: "white"}} >Log out</Button> 
               : 
               <NavLink to={LOGIN_ROUTE}>
                 <Button variant={"outlined"}>Login</Button>

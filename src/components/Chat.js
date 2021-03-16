@@ -22,19 +22,34 @@ const Chat = () =>{
         photoURL: user.photoURL,
         body: value,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        // Добавить id Документа
       })
       setValue('');
   };
 
+  const getMessages = async () => {
+    const result = await firestore.collection('messages').get();
+    const allMessages = result.docs;
+    const messagesId = [];
+    allMessages.forEach((message)=> messagesId.push(message.id));
+    console.log(messagesId);
+  }
+  
+ 
+ // firestore.collection('messages').doc("TVnTK9JWNVpNA19SEEeE").delete(); - If u want to delete a message(document)
+
   if(loading) {
     return <Loader/>
+}
+  if(!user) {
+  return <Loader/>
 }
 
   return <>
     <Container>
       <Grid container 
             justify={"center"}
-            style={{height: window.innerHeight -50, marginTop: 18}}>
+            style={{height: window.innerHeight -50, marginTop: 63}}>
               <div style={{width: '80%', height: '72vh', border: '1px solid lightgray', overflowY: "auto", borderRadius: 9}}>
                 {messages.map((message)=>{
                  return <>
@@ -44,7 +59,7 @@ const Chat = () =>{
                     marginLeft: user.uid === message.uid ? 'auto' : '10px',
                     width: "fit-content",
                     padding: 5,
-                    borderRadius: 9
+                    borderRadius: 9,
                     }}>
                     <Grid container >
                         <Avatar src={message.photoURL}/>
@@ -60,15 +75,16 @@ const Chat = () =>{
                     direction={"column"}
                     alignItems={"flex-end"}
                     style={{width: "80%"}}
-                  >
+                  ><Button onClick={ getMessages } variant={"outlined"}>Get messages id</Button>
                       <TextField fullWidth 
                                  variant={"outlined"} 
                                  rowsMax={2} 
-                                 value={value} onChange={e => setValue(e.target.value)}/>
-                      <Button variant={"outlined"} onClick={sendMessage}>Send</Button>
+                                 value={value} 
+                                 onChange={e => setValue(e.target.value)} 
+                                 placeholder={"type here"} />
+                      {value.length > 0 ? <Button variant={"outlined"} onClick={sendMessage}>Send</Button> : null}
                   </Grid>
       </Grid>
-        Chat
     </Container>
   </>
 };
