@@ -1,5 +1,5 @@
 import { Avatar, Button, Container, Grid, TextField } from '@material-ui/core';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {useAuthState} from "react-firebase-hooks/auth"
 import { Context } from '../index';
 import {useCollectionData} from "react-firebase-hooks/firestore"
@@ -15,6 +15,18 @@ const Chat = () =>{
       firestore.collection('messages').orderBy('createdAt')
   );
 
+  // these messages now have an id, so it is possible to delete them.
+  useEffect(()=>{
+    const fetchData = async ()=>{
+      const test223 = firebase.firestore();
+      const test223Data = await test223.collection('messages').get();
+      const newMessages = test223Data.docs.map(doc => ({...doc.data(), id223: doc.id}))
+      console.log(newMessages);
+    }
+    fetchData();
+  },[])
+ 
+
   const sendMessage = async () => {
       firestore.collection('messages').add({
         uid: user.uid,
@@ -27,15 +39,15 @@ const Chat = () =>{
       setValue('');
   };
 
+
   const getMessages = async () => {
     const result = await firestore.collection('messages').get();
     const allMessages = result.docs;
     const messagesId = [];
-    allMessages.forEach((message)=> messagesId.push(message.id));
+    allMessages.forEach((message) => messagesId.push(message.id));
     console.log(messagesId);
   }
   
- 
  // firestore.collection('messages').doc("TVnTK9JWNVpNA19SEEeE").delete(); - If u want to delete a message(document)
 
   if(loading) {
