@@ -14,6 +14,7 @@ const Navbar = () => {
       <AppBar color={"primary"} position="fixed">
         <Toolbar variant={"dense"}>
           <Grid container justify={"flex-end"}>
+            
             {user ? 
               <Button onClick={ ()=> auth.signOut() } variant={"outlined"} style={{color: "white"}} >Log out</Button> 
               : 
