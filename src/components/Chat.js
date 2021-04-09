@@ -53,24 +53,30 @@ console.log('render', deleteMessageId)
               <div style={{width: '80%', height: '72vh', border: '1px solid lightgray', overflowY: "auto", borderRadius: 9}}>
               <ReactScrollableFeed>
                 {messages.map((message)=>{
-                 return <div key={message.createdAt}>
+                 return <div key={message.id}>
                   <div className={user.uid === message.uid ? s.messageContainerSelf : s.messageContainerOthers}>
-                    <Grid container >
+
+                    <div className={s.avatarNameIconsContainer}>
                         <Avatar src={message.photoURL}/>
-                        <div>{message.displayName}</div>
-                        {deleteMessageId === message.id ? user.uid === message.uid ? <> <DeleteIcon 
+                        <div className={s.displayName}>{message.displayName}</div>
+                        {deleteMessageId === message.id ? user.uid === message.uid ? <> 
+                        <DeleteIcon 
                         onClick={()=>{
                           firestore.collection('messages').doc(message.id).delete() 
                           setDeleteMessageId('');
                         }} 
-                        style={{color: 'gray', cursor: 'pointer'}}></DeleteIcon>
-                        {deleteMessageId !== '' ? user.uid === message.uid ? <DoneIcon variant={"outlined"} style={{color: 'gray', cursor: 'pointer'}} onClick={()=>{setDeleteMessageId('')}}></DoneIcon>:null : null}
+                        style={{color: 'gray', cursor: 'pointer'}}>
+                        </DeleteIcon>
+                        {deleteMessageId !== '' ? user.uid === message.uid ? 
+                        <DoneIcon variant={"outlined"} style={{color: 'gray', cursor: 'pointer'}} onClick={()=>{setDeleteMessageId('')}}>
+                        </DoneIcon> : null : null}
                         </>       
                         : null : null}
-                    </Grid>
-                        <div onClick={()=>{
-                      setDeleteMessageId(message.id)
-                    }} >{message.body}</div>
+
+                    </div>
+
+                    <div className={s.messageBody} onClick={()=>{setDeleteMessageId(message.id)}}>{message.body}</div>
+
                   </div>
                  </div>
                 })}
@@ -89,7 +95,9 @@ console.log('render', deleteMessageId)
                                  rowsMax={2} 
                                  value={value} 
                                  onChange={e => setValue(e.target.value)} 
-                                 placeholder={"type here"}/>
+                                 placeholder={"type here"}
+                                 inputProps={{ maxLength: 900 }}
+                                 />
                       {value.length > 0 ? <Button variant={"outlined"} onClick={sendMessage}>Send</Button> : null}
                       
                   </Grid>

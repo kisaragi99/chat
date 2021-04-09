@@ -1,21 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100&display=swap');
+
 .messageContainerSelf{
     margin: 10px;
+    min-width: 210px;
     width: fit-content;
+    height: auto;
+    word-wrap:break-word;
+    max-width: 234px;
     padding: 5px;
-    border: 1px solid blue;
+    background-color: #EDEDED;
     border-radius: 9px;
     margin-left: auto;
+    font-family: 'Roboto';
+    font-weight: 400;
 }
 
 .messageContainerOthers{
   margin: 10px;
-  width: fit-content;
-  padding: 5px;
-  border-radius: 9px;
-  border: 1px solid gray;
-  
+    min-width: 210px;
+    width: fit-content;
+    height: auto;
+    word-wrap:break-word;
+    background-color: #EDEDED;
+    max-width: 234px;
+    padding: 5px;
+    border-radius: 9px;
+    font-family: 'Roboto';
+    font-weight: 400;
 }
-
+.avatarNameIconsContainer{
+  display: flex;
+  align-items: center;
+}
 ::-webkit-scrollbar {
   display: none;
   }
+.displayName{
+  font-size: 14px;
+  margin-left: 9px;
+}
+.messageBody{
+  margin-top: 5px;
+  font-size: 14px;
+}
