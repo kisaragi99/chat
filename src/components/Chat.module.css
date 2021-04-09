@@ -1,0 +1,21 @@
+.messageContainerSelf{
+    margin: 10px;
+    width: fit-content;
+    padding: 5px;
+    border: 1px solid blue;
+    border-radius: 9px;
+    margin-left: auto;
+}
+
+.messageContainerOthers{
+  margin: 10px;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 9px;
+  border: 1px solid gray;
+  
+}
+
+::-webkit-scrollbar {
+  display: none;
+  }

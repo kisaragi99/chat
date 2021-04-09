@@ -7,6 +7,9 @@ import { Context } from '../index';
 import {useCollectionData} from "react-firebase-hooks/firestore"
 import Loader from './Loader';
 import firebase from "firebase";
+import s from './Chat.module.css';
+import ReactScrollableFeed from 'react-scrollable-feed';
+
 
 const Chat = () =>{
   
@@ -40,39 +43,30 @@ const Chat = () =>{
   }
 console.log('render', deleteMessageId)
   return <>
-    <Container>
+    <Container maxWidth="md" className={s.mainContainer}>
       <Grid container 
             justify={"center"}
-            style={{height: window.innerHeight -50, marginTop: 63}}
+            style={{height: window.innerHeight -63, marginTop: 62}}
             >
             
 
               <div style={{width: '80%', height: '72vh', border: '1px solid lightgray', overflowY: "auto", borderRadius: 9}}>
+              <ReactScrollableFeed>
                 {messages.map((message)=>{
                  return <div key={message.createdAt}>
-                  <div style={{
-                    margin: 10,
-                    border: user.uid === message.uid ? '1px solid blue' : '1px solid gray',
-                    marginLeft: user.uid === message.uid ? 'auto' : '10px',
-                    width: "fit-content",
-                    padding: 5,
-                    borderRadius: 9,
-                    }}
-                    
-                    
-                    >
+                  <div className={user.uid === message.uid ? s.messageContainerSelf : s.messageContainerOthers}>
                     <Grid container >
                         <Avatar src={message.photoURL}/>
                         <div>{message.displayName}</div>
-                        {deleteMessageId === message.id ? <> <DeleteIcon 
+                        {deleteMessageId === message.id ? user.uid === message.uid ? <> <DeleteIcon 
                         onClick={()=>{
                           firestore.collection('messages').doc(message.id).delete() 
                           setDeleteMessageId('');
                         }} 
                         style={{color: 'gray', cursor: 'pointer'}}></DeleteIcon>
-                        {deleteMessageId !== '' ? <DoneIcon variant={"outlined"} style={{color: 'gray', cursor: 'pointer'}} onClick={()=>{setDeleteMessageId('')}}></DoneIcon> : null}
+                        {deleteMessageId !== '' ? user.uid === message.uid ? <DoneIcon variant={"outlined"} style={{color: 'gray', cursor: 'pointer'}} onClick={()=>{setDeleteMessageId('')}}></DoneIcon>:null : null}
                         </>       
-                        : null}
+                        : null : null}
                     </Grid>
                         <div onClick={()=>{
                       setDeleteMessageId(message.id)
@@ -80,6 +74,7 @@ console.log('render', deleteMessageId)
                   </div>
                  </div>
                 })}
+                </ReactScrollableFeed>
               </div>
               
 
