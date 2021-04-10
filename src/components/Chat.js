@@ -1,7 +1,7 @@
 import { Avatar, Button, Container, Grid, TextField } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import DoneIcon from '@material-ui/icons/Done';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {useAuthState} from "react-firebase-hooks/auth"
 import { Context } from '../index';
 import {useCollectionData} from "react-firebase-hooks/firestore"
@@ -50,7 +50,7 @@ console.log('render', deleteMessageId)
             >
             
 
-              <div style={{width: '80%', height: '72vh', border: '1px solid lightgray', overflowY: "auto", borderRadius: 9}}>
+              <div style={{width: '80%', height: '63vh', border: '1px solid lightgray', overflowY: "auto", borderRadius: 9}}>
               <ReactScrollableFeed>
                 {messages.map((message)=>{
                  return <div key={message.id}>
@@ -97,7 +97,7 @@ console.log('render', deleteMessageId)
                                  onChange={e => setValue(e.target.value)} 
                                  placeholder={"type here"}
                                  inputProps={{ maxLength: 900 }}
-                                 />
+                      />
                       {value.length > 0 ? <Button variant={"outlined"} onClick={sendMessage}>Send</Button> : null}
                       
                   </Grid>
