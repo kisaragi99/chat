@@ -32,14 +32,68 @@
   display: flex;
   align-items: center;
 }
+.avatarImage{
+  width: 23px;
+  height: 23px;
+  border-radius: 50px;
+}
 ::-webkit-scrollbar {
   display: none;
   }
 .displayName{
-  font-size: 14px;
+  font-size: 15px;
   margin-left: 9px;
 }
 .messageBody{
   margin-top: 5px;
-  font-size: 14px;
+  font-size: 16px;
+}
+/* .textFieldGrid{
+  width: 80%;
+} */
+.innerContainer{
+  width: 80%;
+  height: 63vh; 
+  border: 1px solid lightgray; 
+  overflow-y: auto;
+  border-radius: 9px;
+}
+@media screen and (max-width: 768px) {
+.innerContainer{
+width: 100%;
+border: none;
+height: 76vh;
+}
+
+.textFieldGrid{
+  width: 100%;
+}
+.messageContainerSelf{
+  margin: 10px;
+  min-width: 210px;
+  width: fit-content;
+  height: auto;
+  word-wrap:break-word;
+  max-width: 234px;
+  padding: 5px;
+  background-color: #EDEDED;
+  border-radius: 9px;
+  margin-left: auto;
+  font-family: 'Roboto';
+  font-weight: 400;
+}
+
+.messageContainerOthers{
+margin: 10px;
+  min-width: 210px;
+  width: fit-content;
+  height: auto;
+  word-wrap:break-word;
+  background-color: #EDEDED;
+  max-width: 234px;
+  padding: 5px;
+  border-radius: 9px;
+  font-family: 'Roboto';
+  font-weight: 400;
+}
 }
