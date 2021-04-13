@@ -5,7 +5,6 @@ import firebase from "firebase"
 import "firebase/firestore"
 import "firebase/auth"
 
-
 firebase.initializeApp({
   apiKey: "AIzaSyCMbRvCy-t_DIP-9DpkaV9jlQbTbHQal8c",
   authDomain: "simple-chat-35a9e.firebaseapp.com",
@@ -16,12 +15,10 @@ firebase.initializeApp({
   measurementId: "G-B1Y34C3S22"
 })
 
-
 export const Context = createContext(null);
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
-
 
 ReactDOM.render(
 <Context.Provider value={{
