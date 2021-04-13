@@ -33,7 +33,7 @@ const Chat = () =>{
       setValue('');
   };
   
-  // firestore.collection('messages').doc(message.id).delete(); - If u want to delete a message(document)
+  // firestore.collection('messages').doc(message.id).delete(); - If u want to delete a message(document).
   const [deleteMessageId, setDeleteMessageId] = useState('');
 
   if(loading) {
