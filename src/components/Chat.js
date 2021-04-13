@@ -1,4 +1,4 @@
-import { Avatar, Button, Container, Grid, TextField, useMediaQuery } from '@material-ui/core';
+import { Button, Container, Grid, TextField, useMediaQuery } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import DoneIcon from '@material-ui/icons/Done';
 import React, { useContext, useState } from 'react';
