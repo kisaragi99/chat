@@ -1,4 +1,4 @@
-import { Avatar, Button, Container, Grid, TextField, useMediaQuery } from '@material-ui/core';
+import { Button, Container, Grid, TextField, useMediaQuery } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import DoneIcon from '@material-ui/icons/Done';
 import React, { useContext, useState } from 'react';
@@ -33,7 +33,7 @@ const Chat = () =>{
       setValue('');
   };
   
-  // firestore.collection('messages').doc(message.id).delete(); - If u want to delete a message(document)
+  // firestore.collection('messages').doc(message.id).delete(); - If u want to delete a message(document).
   const [deleteMessageId, setDeleteMessageId] = useState('');
 
   if(loading) {
