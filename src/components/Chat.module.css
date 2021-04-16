@@ -1,18 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100&display=swap');
 
+
+.mainContainer{
+  width: 100%;
+}
+.secondMainContainer{
+width: 100%;
+height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.innerContainer{
+  width: 50%;
+  height: 72vh; 
+  border: 1px solid lightgray; 
+  overflow-y: auto;
+  border-radius: 9px;
+  margin-top: 54px;
+}
+
 .messageContainerSelf{
-    margin: 10px;
-    min-width: 210px;
-    width: fit-content;
-    height: auto;
-    word-wrap:break-word;
-    max-width: 234px;
-    padding: 5px;
-    background-color: #EDEDED;
-    border-radius: 9px;
-    margin-left: auto;
-    font-family: 'Roboto';
-    font-weight: 400;
+  margin: 10px;
+  min-width: 210px;
+  width: fit-content;
+  height: auto;
+  word-wrap:break-word;
+  max-width: 234px;
+  padding: 5px;
+  background-color: #EDEDED;
+  border-radius: 9px;
+  margin-left: auto;
+  font-family: 'Roboto';
+  font-weight: 400;
 }
 
 .messageContainerOthers{
@@ -51,18 +73,69 @@
 /* .textFieldGrid{
   width: 80%;
 } */
-.innerContainer{
-  width: 80%;
-  height: 63vh; 
-  border: 1px solid lightgray; 
-  overflow-y: auto;
-  border-radius: 9px;
+
+.formInputWrapper{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
 }
+.messageInput{
+  width: 100%;
+  height: 75%;
+  border: 1px solid gray;
+  border-radius: 10px;
+  outline: none;
+}
+.messageSendButton{
+  border: 0;
+  border-radius: 10px;
+  outline: none;
+  width: 20%;
+  height: 75%;
+  margin-left: 2px;
+}
+.messageSendButton:active{
+background-color: sandybrown;
+}
+
+.messageInput::-webkit-input-placeholder {
+  padding-left: 1px;
+}
+/* MEDIA */
+/* MEDIA */
+/* MEDIA */
+/* MEDIA */
+/* MEDIA */
 @media screen and (max-width: 768px) {
 .innerContainer{
 width: 100%;
-border: none;
-height: 76vh;
+-webkit-box-shadow: 2px 5px 27px 4px rgba(34, 60, 80, 0.18);
+-moz-box-shadow: 2px 5px 27px 4px rgba(34, 60, 80, 0.18);
+box-shadow: 2px 5px 27px 4px rgba(34, 60, 80, 0.18);
+height: 100%;
+border-radius: 0;
+margin-bottom: auto;
+margin-top: 45px;
+border:0;
+}
+.secondMainContainer{
+width: 100%;
+height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+
+.formInputWrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3F51B5;
 }
 
 .textFieldGrid{
@@ -96,4 +169,28 @@ margin: 10px;
   font-family: 'Roboto';
   font-weight: 400;
 }
+
+.messageInput{
+  width: 80%;
+  height: 75%;
+  border-top-right-radius: 0;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 10px;
+  outline: none;
+  border: 0;
+}
+.messageSendButton{
+  border: 0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 0;
+  outline: none;
+  width: 19%;
+  height: 75%;
+  margin: 0 2px 0 0;
+}
+
+
 }
