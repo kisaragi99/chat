@@ -15,11 +15,9 @@ let App = () =>{
   if(loading){
     return <Loader/>
   }
-  if(!user){
-    return <Loader/>
-  }
+  
   if(error){
-    return <Loader/>
+    return <>{alert(error, user)}</>
   }
 return (
     <BrowserRouter>
