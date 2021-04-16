@@ -1,4 +1,3 @@
-import { useMediaQuery } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import DoneIcon from '@material-ui/icons/Done';
 import React, { useContext, useState } from 'react';
@@ -14,7 +13,6 @@ import { useForm } from "react-hook-form";
 
 const Chat = () =>{
   
-  const mediaMobile = useMediaQuery("(max-width: 768px)");
   const { register, handleSubmit, reset } = useForm();
   
   const {auth, firestore} = useContext(Context);
@@ -37,8 +35,6 @@ const Chat = () =>{
   // firestore.collection('messages').doc(message.id).delete(); - If u want to delete a message(document)
   const [deleteMessageId, setDeleteMessageId] = useState('');
 
-
-
   if(loading) {
     return <Loader/>
   }
@@ -46,6 +42,7 @@ const Chat = () =>{
   if(!user) {
   return <Loader/>
   }
+
 console.log('render', deleteMessageId)
   return <>
     <div className={s.mainContainer} >
