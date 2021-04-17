@@ -21,7 +21,7 @@ let App = () =>{
   }
 return (
     <BrowserRouter>
-      <Navbar/>
+      {/* <Navbar/> */}
       <AppRouter/>
     </BrowserRouter>
   )

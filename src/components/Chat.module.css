@@ -3,6 +3,7 @@
 
 .mainContainer{
   width: 100%;
+  border: 1px solid lime;
 }
 .secondMainContainer{
 width: 100%;
@@ -109,6 +110,14 @@ background-color: sandybrown;
 /* MEDIA */
 /* MEDIA */
 @media screen and (max-width: 768px) {
+
+
+.mainContainer{
+  width: 100%;
+  border: 1px solid lime;    
+  height: auto;
+}
+
 .innerContainer{
 width: 100%;
 -webkit-box-shadow: 2px 5px 27px 4px rgba(34, 60, 80, 0.18);
@@ -118,7 +127,8 @@ height:100%;
 border-radius: 0;
 margin-bottom: auto;
 margin-top: 45px;
-border:0;
+
+border: 1px solid red;
 }
 .secondMainContainer{
 width: 100%;
