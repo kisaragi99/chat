@@ -19,11 +19,12 @@ let App = () =>{
   if(error){
     return <>{alert(error, user)}</>
   }
-return (
+return (<div className="mainWrapperAppJs">
     <BrowserRouter>
-      {/* <Navbar/> */}
+      <Navbar/>
       <AppRouter/>
     </BrowserRouter>
+    </div>
   )
 }
 
