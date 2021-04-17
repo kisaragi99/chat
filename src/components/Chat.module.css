@@ -118,13 +118,11 @@ background-color: sandybrown;
 
 .innerContainer{
 width: 100%;
--webkit-box-shadow: 2px 5px 27px 4px rgba(34, 60, 80, 0.18);
--moz-box-shadow: 2px 5px 27px 4px rgba(34, 60, 80, 0.18);
-box-shadow: 2px 5px 27px 4px rgba(34, 60, 80, 0.18);
 height:100%;
 border-radius: 0;
 margin-bottom: auto;
 margin-top: 45px;
+border: 0;
 
 }
 .secondMainContainer{
@@ -154,7 +152,7 @@ align-items: center;
   width: fit-content;
   height: auto;
   word-wrap:break-word;
-  max-width: 234px;
+  max-width: 85%;
   padding: 5px;
   background-color: #EDEDED;
   border-radius: 9px;
@@ -170,7 +168,7 @@ margin: 10px;
   height: auto;
   word-wrap:break-word;
   background-color: #EDEDED;
-  max-width: 234px;
+  max-width: 85%;
   padding: 5px;
   border-radius: 9px;
   font-family: 'Roboto';
@@ -198,5 +196,6 @@ margin: 10px;
   width: 19%;
   height: 75%;
   margin: 0 2px 0 0;
+  border-radius: 0;
   }
 } 
