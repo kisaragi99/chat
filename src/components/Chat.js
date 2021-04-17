@@ -7,9 +7,9 @@ import {useCollectionData} from "react-firebase-hooks/firestore"
 import Loader from './Loader';
 import firebase from "firebase";
 import s from './Chat.module.css';
-import ReactScrollableFeed from 'react-scrollable-feed';
+// import ReactScrollableFeed from 'react-scrollable-feed';
 import { useForm } from "react-hook-form";
-
+import ScrollToBottom from 'react-scroll-to-bottom';
 
 const Chat = () =>{
   
@@ -49,7 +49,7 @@ console.log('render', deleteMessageId)
       <div className={s.secondMainContainer}>
             
               <div className={s.innerContainer}>
-              <ReactScrollableFeed>
+              <ScrollToBottom>
                 {messages.map((message)=>{
                  return <div key={message.id}>
                   <div className={user.uid === message.uid ? s.messageContainerSelf : s.messageContainerOthers}>
@@ -78,7 +78,7 @@ console.log('render', deleteMessageId)
                   </div>
                  </div>
                 })}
-                </ReactScrollableFeed>
+                </ScrollToBottom>
               </div>
 
               <form onSubmit={handleSubmit(sendMessage)} className={s.formInputWrapper}>
