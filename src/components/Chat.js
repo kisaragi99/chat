@@ -49,7 +49,7 @@ console.log('render', deleteMessageId)
       <div className={s.secondMainContainer}>
             
               <div className={s.innerContainer}>
-              <ScrollToBottom>
+              <ScrollToBottom initialScrollBehavior={'auto'} animatingToEnd={true} >
                 {messages.map((message)=>{
                  return <div key={message.id}>
                   <div className={user.uid === message.uid ? s.messageContainerSelf : s.messageContainerOthers}>
