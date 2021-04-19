@@ -7,9 +7,9 @@ import {useCollectionData} from "react-firebase-hooks/firestore"
 import Loader from './Loader';
 import firebase from "firebase";
 import s from './Chat.module.css';
-// import ReactScrollableFeed from 'react-scrollable-feed';
 import { useForm } from "react-hook-form";
 import ScrollToBottom from 'react-scroll-to-bottom';
+import TextareaAutosize from 'react-textarea-autosize';
 
 const Chat = () =>{
   
@@ -43,7 +43,7 @@ const Chat = () =>{
   return <Loader/>
   }
 
-console.log('render', deleteMessageId)
+console.log('render')
   return <>
     <div className={s.mainContainer} >
       <div className={s.secondMainContainer}>
@@ -82,23 +82,29 @@ console.log('render', deleteMessageId)
               </div>
 
               <form onSubmit={handleSubmit(sendMessage)} className={s.formInputWrapper}>
-                  <input 
-                  placeholder="type here" 
-                  {...register("messageBody",{ required: true, maxLength: 900 })} 
-                  className={s.messageInput} 
-                  autoComplete="off" 
-                  />
+                  <TextareaAutosize 
+                  className={s.textAreaAuto} 
+                  {...register("messageBody",{ required: true, maxLength: 900 })}
+                  autoComplete="off"
+                  placeholder="type here"  
+                   />
                   <input value="send" type="submit" className={s.messageSendButton}></input>
-              </form>
-
-
-
-
-
                   
+              </form>
+              
+
       </div>
     </div>
   </>
 };
 
 export default Chat;
+
+
+
+// <textarea 
+//                   placeholder="type here" 
+//                   {...register("messageBody",{ required: true, maxLength: 900 })} 
+//                   className={s.messageInput} 
+//                   autoComplete="off" 
+//                   />

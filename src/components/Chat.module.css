@@ -87,6 +87,7 @@ align-items: center;
   border: 1px solid gray;
   border-radius: 10px;
   outline: none;
+  resize: none;
 }
 .messageSendButton{
   border: 0;
@@ -97,17 +98,16 @@ align-items: center;
   margin-left: 2px;
 }
 .messageSendButton:active{
-background-color: sandybrown;
+background-color: rgb(151, 221, 149);
 }
 
-.messageInput::-webkit-input-placeholder {
-  padding-left: 1px;
-}
+
 /* MEDIA */
 /* MEDIA */
 /* MEDIA */
 /* MEDIA */
 /* MEDIA */
+
 @media screen and (max-width: 768px) {
 
 
@@ -134,14 +134,6 @@ justify-content: center;
 align-items: center;
 }
 
-.formInputWrapper{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #3F51B5;
-  height: 50px;
-}
 
 .textFieldGrid{
   width: 100%;
@@ -162,11 +154,11 @@ align-items: center;
 }
 
 .messageContainerOthers{
-margin: 10px;
+  margin: 10px;
   min-width: 210px;
   width: fit-content;
   height: auto;
-  word-wrap:break-word;
+  word-wrap: break-word;
   background-color: #EDEDED;
   max-width: 85%;
   padding: 5px;
@@ -174,28 +166,66 @@ margin: 10px;
   font-family: 'Roboto';
   font-weight: 400;
 }
+.formInputWrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3F51B5;
+  min-height: 30px;
+  height: 30px;
+  max-height: 75px;
+  box-sizing: border-box;
+  height: max-content;
 
-.messageInput{
+}
+
+.textAreaAuto{
   width: 80%;
-  height: 75%;
-  border-top-right-radius: 0;
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 10px;
+  min-height: 75%;
+  height: 100%;
+  max-height:75%;
   outline: none;
   border: 0;
   font-size: 16px;
+  resize: none;
+  border-radius: 5px;
+  margin-left: 2px;
+  text-indent: 3px;
+  background-color: #EDEDED;
 }
+
+
 .messageSendButton{
   border: 0;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 0;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 0;
+  border-radius: 5px;
   outline: none;
   width: 19%;
   height: 75%;
   margin: 0 2px 0 0;
   -webkit-appearance: none;
+  margin-left: 2px;
   }
+
+
+
+  
+.messageInput{
+  width: 80%;
+  min-height: 75%;
+  height: 75%;
+  max-height: 130px;
+  word-wrap: break-word;
+  word-break: break-all;
+  border-top-right-radius: 0;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 5px;
+  outline: none;
+  border: 0;
+  font-size: 16px;
+  resize: none;
+  text-indent: 5px;
+  overflow: auto;
+}
 } 
