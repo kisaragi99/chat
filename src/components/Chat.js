@@ -29,7 +29,9 @@ const Chat = () =>{
         body: data.messageBody,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       })
+      console.log(data);
       reset();
+      
   };
   
   // firestore.collection('messages').doc(message.id).delete(); - If u want to delete a message(document)
@@ -49,7 +51,7 @@ console.log('render')
       <div className={s.secondMainContainer}>
             
               <div className={s.innerContainer}>
-              <ScrollToBottom initialScrollBehavior={'auto'} animatingToEnd={true} >
+              <ScrollToBottom debug={false} initialScrollBehavior={'auto'} animatingToEnd={true}  >
                 {messages.map((message)=>{
                  return <div key={message.id}>
                   <div className={user.uid === message.uid ? s.messageContainerSelf : s.messageContainerOthers}>
@@ -86,7 +88,8 @@ console.log('render')
                   className={s.textAreaAuto} 
                   {...register("messageBody",{ required: true, maxLength: 900 })}
                   autoComplete="off"
-                  placeholder="type here"  
+                  placeholder="type here"
+                  maxRows = {5}
                    />
                   <input value="send" type="submit" className={s.messageSendButton}></input>
                   
