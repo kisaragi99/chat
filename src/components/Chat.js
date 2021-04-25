@@ -60,7 +60,7 @@ console.log('render')
               debug={false} 
               initialScrollBehavior={'auto'} 
               animatingToEnd={false}
-              followButtonClassName={s.scrollToBottomButton} 
+          
               >
                 {messages.map((message)=>{
                  return <div key={message.id}>
