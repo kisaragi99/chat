@@ -99,7 +99,11 @@ align-items: center;
 background-color: rgb(151, 221, 149);
 }
 
-
+.scrollToBottomButton{
+  width: 27px;
+  height: 27px;
+  background-color: rgb(127, 236, 17);
+}
 /* MEDIA */
 /* MEDIA */
 /* MEDIA */
@@ -161,33 +165,36 @@ align-items: center;
   font-family: 'Roboto';
   font-weight: 400;
 }
-.formInputWrapper{
+ .formInputWrapper{
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 36px;
-  height: 36px;
-  max-height: 900px;
+  display: grid;
+  grid-template-columns: 80% 1fr;
+  grid-template-rows: 1;
+  grid-template-areas: "text button" ;
+
+  
+  min-height: 45px;
+  max-height: auto;
   box-sizing: border-box;
-  height: max-content;
-  margin-bottom: 2px;
+
+
   border: 1px solid blue;
-}
+} 
+
+
 
 .textAreaAuto{
-  width: 80%;
+  width: 97%;
   height: 36px;
   outline: none;
-  border: 0;
   font-size: 16px;
   resize: none;
   border-radius: 18px;
   background-color: #EDEDED;
   padding: 8px 14px;
-  box-sizing: border-box;
   border: 1px solid red;
-  margin: 5px;
+  grid-area: 'text';
+  margin-left: 3px;
 }
 
 
@@ -195,11 +202,10 @@ align-items: center;
   border: 0;
   border-radius: 5px;
   outline: none;
-  width: 19%;
+  width: 95%;
   height: 36px;
-  margin: auto 2px 0 0 ;
   -webkit-appearance: none;
-  margin-left: 2px;
+  grid-area: 'button';
   }
 
 
@@ -223,4 +229,5 @@ align-items: center;
   text-indent: 5px;
   overflow: auto;
 }
+
 } 

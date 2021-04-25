@@ -51,7 +51,12 @@ console.log('render')
       <div className={s.secondMainContainer}>
             
               <div className={s.innerContainer}>
-              <ScrollToBottom debug={false} initialScrollBehavior={'auto'} animatingToEnd={true}  >
+              <ScrollToBottom 
+              debug={false} 
+              initialScrollBehavior={'auto'} 
+              animatingToEnd={false}
+              followButtonClassName={s.scrollToBottomButton} 
+              >
                 {messages.map((message)=>{
                  return <div key={message.id}>
                   <div className={user.uid === message.uid ? s.messageContainerSelf : s.messageContainerOthers}>
@@ -91,7 +96,7 @@ console.log('render')
                   placeholder="type here"
                   maxRows = {5}
                    />
-                  <input value="send" type="submit" className={s.messageSendButton}></input>
+                  <button type="submit" className={s.messageSendButton}>отпр</button>
                   
               </form>
               
