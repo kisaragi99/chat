@@ -10,9 +10,14 @@ import s from './Chat.module.css';
 import { useForm } from "react-hook-form";
 import ScrollToBottom from 'react-scroll-to-bottom';
 import TextareaAutosize from 'react-textarea-autosize';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import sendMessageImage from './../../src/utils/send.svg'
+
 
 const Chat = () =>{
   
+  const desktopMedia = useMediaQuery('(min-width:769px)');
+
   const { register, handleSubmit, reset } = useForm();
   
   const {auth, firestore} = useContext(Context);
@@ -94,9 +99,11 @@ console.log('render')
                   {...register("messageBody",{ required: true, maxLength: 900 })}
                   autoComplete="off"
                   placeholder="type here"
-                  maxRows = {5}
+                  maxRows = {desktopMedia ? 1 : 5}
                    />
-                  <button type="submit" className={s.messageSendButton}>отпр</button>
+                  <button type="submit" className={s.messageSendButton}>
+                    <img alt="" src={sendMessageImage} className={s.messageSendButtonImage}></img>
+                  </button>
                   
               </form>
               
@@ -107,12 +114,3 @@ console.log('render')
 };
 
 export default Chat;
-
-
-
-// <textarea 
-//                   placeholder="type here" 
-//                   {...register("messageBody",{ required: true, maxLength: 900 })} 
-//                   className={s.messageInput} 
-//                   autoComplete="off" 
-//                   />
