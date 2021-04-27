@@ -14,7 +14,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import sendMessageImage from './../../src/utils/send.svg'
 
 
-const Chat = () =>{
+const Test = () =>{
   
   const desktopMedia = useMediaQuery('(min-width:769px)');
 
@@ -113,4 +113,4 @@ console.log('render')
   </>
 };
 
-export default Chat;
+export default Test;
