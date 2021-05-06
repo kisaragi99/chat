@@ -11,19 +11,20 @@ import { useForm } from "react-hook-form";
 import ScrollToBottom from 'react-scroll-to-bottom';
 import TextareaAutosize from 'react-textarea-autosize';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import sendMessageImage from './../../src/utils/send.svg'
+import sendMessageImage from './../../src/utils/send.svg';
 
-
-const Test = () =>{
+const Chat = () =>{
   
   const desktopMedia = useMediaQuery('(min-width:769px)');
+
 
   const { register, handleSubmit, reset } = useForm();
   
   const {auth, firestore} = useContext(Context);
   const [user] = useAuthState(auth);
   const [messages, loading] = useCollectionData(
-      firestore.collection('messages').orderBy('createdAt'), {idField: "id"}
+      firestore.collection('messages').orderBy('createdAt'), {idField: "id",snapshotListenOptions: { includeMetadataChanges: true },
+    }
   );
 
   const sendMessage = async (data) => {
@@ -34,13 +35,14 @@ const Test = () =>{
         body: data.messageBody,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       })
-      console.log(data);
+
       reset();
       
   };
   
   // firestore.collection('messages').doc(message.id).delete(); - If u want to delete a message(document)
   const [deleteMessageId, setDeleteMessageId] = useState('');
+
 
   if(loading) {
     return <Loader/>
@@ -50,18 +52,22 @@ const Test = () =>{
   return <Loader/>
   }
 
-console.log('render')
+
+
+console.warn('render', messages.length);
   return <>
     <div className={s.mainContainer} >
       <div className={s.secondMainContainer}>
             
               <div className={s.innerContainer}>
+              
               <ScrollToBottom 
-              debug={false} 
-              initialScrollBehavior={'auto'} 
+              debug={false}
+              initialScrollBehavior='auto'
               animatingToEnd={false}
-          
+              
               >
+                
                 {messages.map((message)=>{
                  return <div key={message.id}>
                   <div className={user.uid === message.uid ? s.messageContainerSelf : s.messageContainerOthers}>
@@ -69,17 +75,18 @@ console.log('render')
                     <div className={s.avatarNameIconsContainer}>
                         <img className={s.avatarImage} src={message.photoURL} alt={'avatar'}/>
                         <div className={s.displayName}>{message.displayName}</div>
-                        {deleteMessageId === message.id ? user.uid === message.uid ? <> 
-                        <DeleteIcon 
-                        onClick={()=>{
-                          firestore.collection('messages').doc(message.id).delete() 
-                          setDeleteMessageId('');
-                        }} 
-                        style={{color: 'gray', cursor: 'pointer'}}>
-                        </DeleteIcon>
+                        {deleteMessageId === message.id ? user.uid === message.uid ? 
+                        <> 
+                          <DeleteIcon 
+                            onClick={()=>{
+                              firestore.collection('messages').doc(message.id).delete() 
+                              setDeleteMessageId('');
+                            }} 
+                            style={{color: 'gray', cursor: 'pointer'}}> 
+                          </DeleteIcon>
                         {deleteMessageId !== '' ? user.uid === message.uid ? 
-                        <DoneIcon variant={"outlined"} style={{color: 'gray', cursor: 'pointer'}} onClick={()=>{setDeleteMessageId('')}}>
-                        </DoneIcon> : null : null}
+                          <DoneIcon variant={"outlined"} style={{color: 'gray', cursor: 'pointer'}} onClick={()=>{setDeleteMessageId  ('')}}>
+                          </DoneIcon> : null : null}
                         </>       
                         : null : null}
 
@@ -90,27 +97,31 @@ console.log('render')
                   </div>
                  </div>
                 })}
+
                 </ScrollToBottom>
               </div>
 
-              <form onSubmit={handleSubmit(sendMessage)} className={s.formInputWrapper}>
+              <form onSubmit={handleSubmit(sendMessage)} className={s.formInputWrapper} >
+
                   <TextareaAutosize 
                   className={s.textAreaAuto} 
                   {...register("messageBody",{ required: true, maxLength: 900 })}
                   autoComplete="off"
-                  placeholder="type here"
+                  placeholder={"type here"}
                   maxRows = {desktopMedia ? 1 : 5}
+                 
                    />
+
                   <button type="submit" className={s.messageSendButton}>
                     <img alt="" src={sendMessageImage} className={s.messageSendButtonImage}></img>
                   </button>
-                  
               </form>
               
-
       </div>
     </div>
   </>
 };
 
-export default Test;
+export default Chat;
+
+//setValue("messageBody", e.target.value.trim())
