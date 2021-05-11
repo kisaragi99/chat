@@ -1,3 +1,5 @@
+# Real-time чат на React + Firebase с упором на мобильную версию. (В разработке)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
