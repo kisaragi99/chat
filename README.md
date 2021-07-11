@@ -1,4 +1,4 @@
-# Real-time чат на React + Firebase под мобильные браузеры. (В разработке)
+# Real-time чат на React + Firebase под мобильные браузеры.
 
 # Getting Started with Create React App
 
