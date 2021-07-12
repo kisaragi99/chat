@@ -5,7 +5,7 @@ import React from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import s from './FormTextButton.module.css';
-import sendMessageImage from '../../utils/send.svg';
+import sendMessageImage from '../../utils/sendMessage.svg';
 
 const FormTextButton = ({ sendMessage, register, handleSubmit }) => {
   const desktop = useMediaQuery('(min-width:769px)');
