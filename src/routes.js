@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import { CHAT_ROUTE, LOGIN_ROUTE } from './utils/consts';
 import Chat from './components/Chat/Chat';
 import Login from './components/Login';

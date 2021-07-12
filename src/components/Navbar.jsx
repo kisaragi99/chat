@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React, { useContext } from 'react';
 import {
   AppBar, Toolbar, Grid, Button,

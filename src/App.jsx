@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable no-alert */
 import React, { useContext } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';

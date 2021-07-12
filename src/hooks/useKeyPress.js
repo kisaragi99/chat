@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import { useState, useEffect } from 'react';
 
 export default function useKeyPress(targetKey) {

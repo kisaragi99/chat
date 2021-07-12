@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import {
   Box, Button, Container, Grid,
 } from '@material-ui/core';
