@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint linebreak-style: ["error", "windows"] */
 import { createContext } from 'react';
 
