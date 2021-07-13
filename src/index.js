@@ -5,6 +5,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import firebase from 'firebase/app';
+import { BrowserRouter } from 'react-router-dom';
 import { auth, firestore, context as Context } from './context';
 import App from './App';
 
@@ -15,7 +16,10 @@ ReactDOM.render(
     firestore,
   }}
   >
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+
   </Context.Provider>,
   document.getElementById('root'),
 );
