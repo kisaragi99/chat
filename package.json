@@ -2,6 +2,9 @@
   "homepage": "https://kisaragi99.github.io/second",
   "name": "second",
   "version": "0.1.0",
+  "engines": {
+    "node": "7.19.1"
+  },
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
